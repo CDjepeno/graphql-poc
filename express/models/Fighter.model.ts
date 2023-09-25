@@ -18,5 +18,5 @@ export class Fighter {
   picture: string;
 
   @Column("varchar")
-  types: string;
+  type: string;
 }

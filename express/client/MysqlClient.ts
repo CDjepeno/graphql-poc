@@ -15,14 +15,13 @@ export class ClientMysql {
     migrations: [],
   });
 
-  constructor(test:string) {}
-
-  static getConnection() {
-    return this.AppDataSource.initialize()
-      .then(() => {
-        console.log("Connection initialized with database...");
-      })
-      .catch((error: Error) => console.log(error));
+  static async getConnection() {
+    try {
+      await this.AppDataSource.initialize();
+      console.log("Connection initialized with database...");
+    } catch (error) {
+      return console.log(error);
+    }
   }
 }
 

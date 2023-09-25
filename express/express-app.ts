@@ -5,5 +5,4 @@ export const expressApp = async(app: any) => {
   app.use(express.json());
   app.use(cors());
   app.use(fighterRoute)
-
 }

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "./app.ts",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon app.ts"
   },
   "keywords": [],
   "author": "",
