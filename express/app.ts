@@ -3,7 +3,7 @@ import { expressApp } from "./express-app";
 import * as express from "express";
 
 const app = express();
-const PORT = 3000;
+const PORT = 8000;
 
 expressApp(app);
 ClientMysql.getConnection();
