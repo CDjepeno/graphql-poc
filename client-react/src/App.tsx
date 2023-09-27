@@ -12,7 +12,7 @@ function App() {
                     <Header />
                     {/* Le système de gestion des routes de notre application */}
                     <Routes>
-                        <Route path="/fighters" element={<FighterList/>}/>
+                        <Route path="/" element={<FighterList/>}/>
                         {/* <PrivateRouteAll exact path="/fighters/:id" component={FightersDetail}/>
                         <PrivateRouteManager exact path="/fighters/edit/:id" component={fighterEdit}/>
                         <PrivateRouteManager exact path="/fighter/add" component={FighterAdd}/>

@@ -15,7 +15,6 @@ export type Fighter = {
   name: string;
   picture: string;
 };
-const endpoint = "http://localhost:3001/graphql";
 const GET_FIGHTERS = gql`
   query {
     getFighters {
@@ -28,12 +27,6 @@ const GET_FIGHTERS = gql`
     }
   }
 `;
-interface FighterListProps {
-  data: any,
-  isLoading: any,
-  error: any,
-
-}
 
 const FighterList: FunctionComponent = () => {
 
@@ -48,7 +41,7 @@ const FighterList: FunctionComponent = () => {
       <div className="container">
         <div className="row">
           {data ? (
-            data.data.map((fighter) => (
+            data.getFighters.map((fighter) => (
               <FighterCard key={fighter.id} fighter={fighter} />
             ))
           ) : (
