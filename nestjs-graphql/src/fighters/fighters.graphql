@@ -1,0 +1,12 @@
+type Fighter {
+  id: Int!
+  hp: Int!
+  cp: Int!
+  name: String!
+  picture: String!
+  type: String!
+}
+
+type Query {
+  getFighters: [Fighter]!
+}
