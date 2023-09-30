@@ -11,13 +11,13 @@ const formatType = (type: string): string => {
       case 'Pride Toopers': 
         color = 'bg-danger text-white'; 
         break; 
-      case 'Dieu de la destruction': 
+      case 'D.destruction': 
         color = 'bg-light text-dark'; 
         break; 
       case 'Hitman': 
         color = 'bg-info text-white'; 
         break; 
-      case 'Planet freezer': 
+      case 'P.freezer': 
         color = 'bg-purple text-white'; 
         break; 
       case 'Cyborg': 

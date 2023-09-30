@@ -6,6 +6,7 @@ import { gql } from "graphql-request";
 // import { Link } from 'react-router-dom';
 import { QueryResultGraphQl, useGqlQuery } from '../utils/UserGqlQuery';
 import FighterCard from "../components/fighter-card";
+import { Container, Grid } from "@mui/material";
 
 export type Fighter = {
   id: any;
@@ -21,8 +22,6 @@ const GET_FIGHTERS = gql`
       id,
       name,
       type,
-      hp,
-      cp,
       picture
     }
   }
@@ -31,23 +30,25 @@ const GET_FIGHTERS = gql`
 const FighterList: FunctionComponent = () => {
 
   const {data, error} = useGqlQuery<QueryResultGraphQl<Fighter[]>>('getFighters', GET_FIGHTERS)
-  console.log(data);
 
   if (error) return <pre>Une erreur est survenue</pre>;
   
   return (
     <div>
-      <div className="container justify-content-center mt-5">
-        <div className="row">
-          {data ? (
-            data.getFighters.map((fighter) => (
-              <FighterCard key={fighter.id} fighter={fighter} />
-            ))
-          ) : (
-            <p>No fighters available</p>
-          )}  
-        </div>
-      </div>
+      <Container>
+        <Grid container spacing={3} alignItems="center" justifyContent="center" className="gridWithMarginTop">
+            {data ? (
+              data.getFighters.map((fighter) => (
+                <Grid item md={4}>
+                  <FighterCard key={fighter.id} fighter={fighter}/>
+                </Grid>
+
+              ))
+            ) : (
+              <p>No fighters available</p>
+            )}  
+        </Grid>
+      </Container>
     </div>
   );
 };
