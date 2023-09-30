@@ -1,4 +1,4 @@
-import { Resolver, Query } from '@nestjs/graphql';
+import { Resolver, Query, Args } from '@nestjs/graphql';
 import { FightersService } from './fighters.service';
 
 @Resolver()
@@ -8,5 +8,10 @@ export class FightersResolver {
   @Query()
   getFighters() {
     return this.fighterService.getAllFighter();
+  }
+
+  @Query()
+  getFighterById(@Args('id') id: number) {
+    return this.fighterService.getFighterById(id);
   }
 }

@@ -1,5 +1,5 @@
 type Fighter {
-  id: Int!
+  id: String!
   hp: Int!
   cp: Int!
   name: String!
@@ -9,4 +9,5 @@ type Fighter {
 
 type Query {
   getFighters: [Fighter]!
+  getFighterById(id: Int!): Fighter!
 }

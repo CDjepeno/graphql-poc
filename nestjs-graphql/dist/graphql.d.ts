@@ -1,5 +1,5 @@
 export declare class Fighter {
-    id: number;
+    id: string;
     hp: number;
     cp: number;
     name: string;
@@ -8,6 +8,7 @@ export declare class Fighter {
 }
 export declare abstract class IQuery {
     abstract getFighters(): Nullable<Fighter>[] | Promise<Nullable<Fighter>[]>;
+    abstract getFighterById(id: number): Fighter | Promise<Fighter>;
 }
 type Nullable<T> = T | null;
 export {};

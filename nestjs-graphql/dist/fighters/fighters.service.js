@@ -14,6 +14,11 @@ let FightersService = class FightersService {
         const users = await axios_1.default.get('http://localhost:8000/api/fighters');
         return users.data;
     }
+    async getFighterById(id) {
+        console.log(id);
+        const users = await axios_1.default.get(`http://localhost:8000/api/fighters/${id}`);
+        return users.data;
+    }
 };
 exports.FightersService = FightersService;
 exports.FightersService = FightersService = __decorate([

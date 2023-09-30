@@ -8,6 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FightersResolver = void 0;
 const graphql_1 = require("@nestjs/graphql");
@@ -19,6 +22,9 @@ let FightersResolver = class FightersResolver {
     getFighters() {
         return this.fighterService.getAllFighter();
     }
+    getFighterById(id) {
+        return this.fighterService.getFighterById(id);
+    }
 };
 exports.FightersResolver = FightersResolver;
 __decorate([
@@ -27,6 +33,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], FightersResolver.prototype, "getFighters", null);
+__decorate([
+    (0, graphql_1.Query)(),
+    __param(0, (0, graphql_1.Args)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", void 0)
+], FightersResolver.prototype, "getFighterById", null);
 exports.FightersResolver = FightersResolver = __decorate([
     (0, graphql_1.Resolver)(),
     __metadata("design:paramtypes", [fighters_service_1.FightersService])
