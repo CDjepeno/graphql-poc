@@ -33,12 +33,11 @@ const FighterList: FunctionComponent = () => {
   const {data, error} = useGqlQuery<QueryResultGraphQl<Fighter[]>>('getFighters', GET_FIGHTERS)
   console.log(data);
 
-  // if (isLoading) return "Loading...";
   if (error) return <pre>Une erreur est survenue</pre>;
   
   return (
     <div>
-      <div className="container">
+      <div className="container justify-content-center mt-5">
         <div className="row">
           {data ? (
             data.getFighters.map((fighter) => (
@@ -47,10 +46,6 @@ const FighterList: FunctionComponent = () => {
           ) : (
             <p>No fighters available</p>
           )}  
-
-           {/* {data ? data.map((fighter: any) => (
-            <FighterCard key={fighter._id} fighter={fighter} />
-          ))} */}
         </div>
       </div>
     </div>

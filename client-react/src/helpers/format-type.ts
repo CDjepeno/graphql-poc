@@ -3,32 +3,32 @@ const formatType = (type: string): string => {
    
     switch (type) {
       case 'Sayan': 
-        color = 'yellow lighten-1'; 
+        color = 'bg-primary text-white'; 
         break; 
       case 'Namek': 
-        color = 'green lighten-1'; 
+        color = 'bg-success text-white'; 
         break; 
       case 'Pride Toopers': 
-        color = 'red lighten-1'; 
+        color = 'bg-danger text-white'; 
         break; 
       case 'Dieu de la destruction': 
-        color = 'marron lighten-1'; 
+        color = 'bg-light text-dark'; 
         break; 
       case 'Hitman': 
-        color = 'blue lighten-3'; 
+        color = 'bg-info text-white'; 
         break; 
       case 'Planet freezer': 
-        color = 'purple lighten-3'; 
+        color = 'bg-purple text-white'; 
         break; 
       case 'Cyborg': 
-        color = 'orange accent-1'; 
+        color = 'bg-warning text-dark'; 
         break; 
       default: 
-        color = 'grey'; 
+        color = 'bg-secondary text-white'; 
         break; 
     }
    
-    return `chip ${color}`;
+    return `badge ${color}`;
 }
 
 export default formatType;

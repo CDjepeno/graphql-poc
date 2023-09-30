@@ -9,7 +9,7 @@ type Props = {
     borderColor?: string
 }
 
-const FighterCard : FunctionComponent<Props> = ({fighter, borderColor = '#ff0000'}) => {
+const FighterCard : FunctionComponent<Props> = ({fighter, borderColor = '#ff2600'}) => {
 
     const [color, setColor] = useState<string>();
     const navigate = useNavigate();
@@ -27,20 +27,35 @@ const FighterCard : FunctionComponent<Props> = ({fighter, borderColor = '#ff0000
     } 
 
     return ( 
-        <div id="card" className="col s6 m4" onMouseEnter={showBorder} onMouseLeave={hideBorder} onClick={() => goToFighter(fighter.id)}>
-            <div className="card horizontal hoverable" style={{ borderColor: color }}>
-                <div className="card-image col">
-                    <img  src={fighter.picture} alt=""/>
-                </div>
-                <div className="card-stacked">
-                    <div className="card-content">
-                        <p className="center b={-5}">{fighter.name}</p>
-                            <span className={formatType(fighter.type)}>{fighter.type}</span>
+        <div className='col-sm-4'>
+            <div id="card horizontal hoverable" style={{ borderColor: color, maxWidth: 400}} className="card mb-3 " onMouseEnter={showBorder} onMouseLeave={hideBorder} onClick={() => goToFighter(fighter.id)}>
+                <div className="row g-0 " >
+                        <img className="img col-md-5" src={fighter.picture} alt=""/>
+                    <div className="col-md-6">
+                        <div className="card-body">
+                            <p className="center b={-5}">{fighter.name}</p>
+                                <span className={formatType(fighter.type)}>{fighter.type}</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     )
+    // <div class="card mb-3" style="max-width: 540px;">
+    //     <div class="row g-0">
+    //       <div class="col-md-4">
+    //         <img src="..." class="img-fluid rounded-start" alt="...">
+    //       </div>
+    //       <div class="col-md-8">
+    //         <div class="card-body">
+    //           <h5 class="card-title">Card title</h5>
+    //           <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    //           <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    //         </div>
+    //       </div>
+    //     </div>
+    // </div> 
 }
 
 
