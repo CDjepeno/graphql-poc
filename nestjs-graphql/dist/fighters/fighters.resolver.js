@@ -15,6 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FightersResolver = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const fighters_service_1 = require("./fighters.service");
+const Create_fighter_input_1 = require("../dto/Create-fighter.input");
+const fighter_entity_1 = require("../entities/fighter.entity");
 let FightersResolver = class FightersResolver {
     constructor(fighterService) {
         this.fighterService = fighterService;
@@ -24,6 +26,9 @@ let FightersResolver = class FightersResolver {
     }
     getFighterById(id) {
         return this.fighterService.getFighterById(id);
+    }
+    createFighter(createFighterInput) {
+        return this.fighterService.createFighter(createFighterInput);
     }
 };
 exports.FightersResolver = FightersResolver;
@@ -40,8 +45,15 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], FightersResolver.prototype, "getFighterById", null);
+__decorate([
+    (0, graphql_1.Mutation)(),
+    __param(0, (0, graphql_1.Args)('createFighterInput')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Create_fighter_input_1.CreateFighterInput]),
+    __metadata("design:returntype", void 0)
+], FightersResolver.prototype, "createFighter", null);
 exports.FightersResolver = FightersResolver = __decorate([
-    (0, graphql_1.Resolver)(),
+    (0, graphql_1.Resolver)(() => fighter_entity_1.Fighter),
     __metadata("design:paramtypes", [fighters_service_1.FightersService])
 ], FightersResolver);
 //# sourceMappingURL=fighters.resolver.js.map

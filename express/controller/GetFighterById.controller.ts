@@ -7,7 +7,7 @@ export class GetFighterByIdController {
       const fighters = await FighterService.getFighterById(+req.params.id)
       return res.status(200).json(fighters)
     } catch (err) {
-      res.status(500).json(err.message)
+      res.status(err.status).json(err.message)
     }
   }
 

@@ -7,7 +7,19 @@ type Fighter {
   type: String!
 }
 
+input CreateFighterInput {
+  hp: Int!
+  cp: Int!
+  name: String!
+  picture: String!
+  type: String!
+}
+
 type Query {
   getFighters: [Fighter]!
   getFighterById(id: Int!): Fighter!
+}
+
+type Mutation {
+  createFighter(createFighterInput: CreateFighterInput!): Fighter!
 }

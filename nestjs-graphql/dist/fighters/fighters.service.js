@@ -15,8 +15,13 @@ let FightersService = class FightersService {
         return users.data;
     }
     async getFighterById(id) {
-        console.log(id);
         const users = await axios_1.default.get(`http://localhost:8000/api/fighters/${id}`);
+        return users.data;
+    }
+    async createFighter(createFighterInput) {
+        const users = await axios_1.default.post(`http://localhost:8000/api/fighter`, createFighterInput);
+        console.log('users.data*************************');
+        console.log(users.data);
         return users.data;
     }
 };

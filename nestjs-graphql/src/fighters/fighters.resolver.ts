@@ -1,7 +1,9 @@
-import { Resolver, Query, Args } from '@nestjs/graphql';
+import { Resolver, Query, Args, Mutation } from '@nestjs/graphql';
 import { FightersService } from './fighters.service';
+import { CreateFighterInput } from '../dto/Create-fighter.input';
+import { Fighter } from '../entities/fighter.entity';
 
-@Resolver()
+@Resolver(() => Fighter)
 export class FightersResolver {
   constructor(private fighterService: FightersService) {}
 
@@ -13,5 +15,12 @@ export class FightersResolver {
   @Query()
   getFighterById(@Args('id') id: number) {
     return this.fighterService.getFighterById(id);
+  }
+
+  @Mutation()
+  createFighter(
+    @Args('createFighterInput') createFighterInput: CreateFighterInput,
+  ) {
+    return this.fighterService.createFighter(createFighterInput);
   }
 }
